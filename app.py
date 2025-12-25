@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import pickle
 
 # Load trained model
@@ -13,19 +14,19 @@ st.write("Predict a cricketer's total career runs using Machine Learning")
 
 st.sidebar.header("Input Player Statistics")
 
-# Inputs
 matches = st.sidebar.number_input("Mat", min_value=1, step=1)
 innings = st.sidebar.number_input("Inns", min_value=1, step=1)
 not_outs = st.sidebar.number_input("NO", min_value=0, step=1)
 balls_faced = st.sidebar.number_input("BF", min_value=1, step=1)
 
-# Prediction
 if st.button("Predict Career Runs"):
-    features = np.array([[matches, innings, not_outs, balls_faced]])
-    prediction = model.predict(features)
+    input_df = pd.DataFrame(
+        [[matches, innings, not_outs, balls_faced]],
+        columns=['Mat', 'Inns', 'NO', 'BF']
+    )
 
+    prediction = model.predict(input_df)
     st.success(f"🏆 Predicted Career Runs: {int(prediction[0])}")
-
 
 st.markdown("---")
 st.markdown("""
