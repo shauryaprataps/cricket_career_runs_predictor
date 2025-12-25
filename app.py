@@ -21,10 +21,11 @@ balls_faced = st.sidebar.number_input("BF", min_value=1, step=1)
 
 # Prediction
 if st.button("Predict Career Runs"):
-    features = np.array([[Mat, Inns, NO, BF]])
+    features = np.array([[matches, innings, not_outs, balls_faced]])
     prediction = model.predict(features)
 
-    st.success(f"🏆 Predicted Career Runs: **{int(prediction[0])}**")
+    st.success(f"🏆 Predicted Career Runs: {int(prediction[0])}")
+
 
 st.markdown("---")
 st.markdown("""
