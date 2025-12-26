@@ -7,10 +7,10 @@ import pickle
 with open("my-cricket.pkl", "rb") as f:
     model = pickle.load(f)
 
-st.set_page_config(page_title="Cricket Career Runs Predictor")
+st.set_page_config(page_title="ODI Career Runs Predictor")
 
-st.title("🏏 Cricket Career Runs Predictor")
-st.write("Predict a cricketer's total career runs using Machine Learning")
+st.title("🏏 ODI Career Runs Predictor")
+st.write("Predict a cricketer's total ODI runs using")
 
 st.sidebar.header("Input Player Statistics")
 
@@ -19,7 +19,7 @@ innings = st.sidebar.number_input("Inns", min_value=1, step=1)
 not_outs = st.sidebar.number_input("NO", min_value=0, step=1)
 balls_faced = st.sidebar.number_input("BF", min_value=1, step=1)
 
-if st.button("Predict Career Runs"):
+if st.button("Predict ODI Career Runs"):
     input_df = pd.DataFrame(
         [[matches, innings, not_outs, balls_faced]],
         columns=['Mat', 'Inns', 'NO', 'BF']
@@ -30,9 +30,4 @@ if st.button("Predict Career Runs"):
 
 st.markdown("---")
 st.markdown("""
-### Model Details
-- Algorithm: Linear Regression
-- Features: Matches, Innings, Not Outs, Balls Faced
-- Test R² Score: ~0.96
-- RMSE: ~770 runs
-""")
+
