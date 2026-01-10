@@ -29,5 +29,5 @@ if st.button("Predict ODI Career Runs"):
     st.success(f"🏆 Predicted Career Runs: {int(prediction[0])}")
 
 st.markdown("---")
-st.markdown("""
+st.markdown(""")
 
