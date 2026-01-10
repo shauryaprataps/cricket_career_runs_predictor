@@ -27,7 +27,3 @@ if st.button("Predict ODI Career Runs"):
 
     prediction = model.predict(input_df)
     st.success(f"🏆 Predicted Career Runs: {int(prediction[0])}")
-
-st.markdown("---")
-st.markdown(""")
-
